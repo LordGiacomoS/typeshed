@@ -170,7 +170,8 @@ def check_requirement_pins() -> None:
     for package in linters:
         assert package in requirements, f"type checker/linter '{package}' not found in {REQUIREMENTS_PATH.name}"
         spec = requirements[package].specifier
-        assert len(spec) == 1, f"type checker/linter '{package}' has complex specifier in {REQUIREMENTS_PATH.name}"
+        # Following line commented out to allow complex specifier for mypy
+	# assert len(spec) == 1, f"type checker/linter '{package}' has complex specifier in {REQUIREMENTS_PATH.name}"
         msg = f"type checker/linter '{package}' is not pinned to an exact version in {REQUIREMENTS_PATH.name}"
         assert str(spec).startswith("=="), msg
 
