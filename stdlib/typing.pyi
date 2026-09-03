@@ -1035,8 +1035,8 @@ else:
 
 def get_args(tp: Any) -> tuple[Any, ...]: ...  # AnnotationForm
 
-# @overload
-# def get_origin(tp: ParamSpecArgs | ParamSpecKwargs) -> ParamSpec: ...
+@overload
+def get_origin(tp: ParamSpecArgs | ParamSpecKwargs) -> ParamSpec: ...
 @overload
 def get_origin(tp: UnionType) -> type: ...#[UnionType]: ...
 @overload
